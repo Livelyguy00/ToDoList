@@ -1,0 +1,37 @@
+.form{
+  display: flex;
+  flex-direction: column;
+
+  &__group{
+    &:not(:last-child){
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__label{
+    display: block;
+    font-size: 1.5rem;
+    color: $primary;
+    margin-left: 1rem;
+  }
+
+  &__input{
+    display: block;
+    padding: 1.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    transition: box-shadow .2s;
+    font-size: 1.5rem;
+
+    &:focus{
+      border: none;
+      box-shadow: 0 1rem 2rem rgba($black, .2);
+      outline: none;
+    }
+  }
+
+  &__message{
+
+  }
+}

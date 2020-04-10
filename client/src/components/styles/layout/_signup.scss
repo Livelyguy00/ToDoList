@@ -1,0 +1,41 @@
+.signup{
+  width: 100%;
+  height: calc(100% - 70px);
+  display: grid;
+  grid-template-columns: 50%;
+
+  &__side{
+    grid-area: 1;
+    padding: 2rem 4rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__social{
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($primary, .7),
+      rgba($secondary, .7)),
+    url(./img/woman.jpg);
+    background-size: cover;
+    background-position: bottom;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__fb{
+    background-color: $color-facebook;
+    border-radius: unset;
+  }
+
+  &__google{
+    background-color: $color-google;
+    border-radius: unset;
+  }
+
+  &__icon{
+    transform: scale(2);
+    margin-left: 2rem;
+  }
+}

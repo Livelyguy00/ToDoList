@@ -1,0 +1,24 @@
+.btn{
+  &,&:link,&:visited{
+    border-radius: 50px;
+    width: 70%;
+    font-size: 2rem;
+    font-weight: 200;
+    color: $white;
+    border: none;
+    padding: 2rem;
+    margin: auto auto;
+    box-shadow: 0 1rem 2rem rgba($black, .2);
+    transition: all .3s;
+    cursor: pointer;
+
+    &:hover{
+      box-shadow: 0 1.5rem 2rem rgba($black, .3);
+      transform: translateY(-.5rem);
+    }
+  }
+
+  &--primary{
+    background-color: $primary;
+  }
+}

@@ -1,0 +1,27 @@
+*,::after,::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html{
+  font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%
+}
+
+body{
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    to bottom right,
+    rgba($primary, .6),
+    rgba($secondary, .6)
+  );
+  height: 100vh;
+  width: 100vw;
+}
+
+.main{
+  @include absoluteCentered;
+  background-color: $grey;
+  height: 60vh;
+  width: 60vw;
+}

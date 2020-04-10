@@ -1,0 +1,131 @@
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom right, rgba(40, 75, 99, 0.6), rgba(60, 110, 113, 0.6));
+  height: 100vh;
+  width: 100vw; }
+
+.main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #d9d9d9;
+  height: 60vh;
+  width: 60vw; }
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: white;
+  line-height: 1.7; }
+
+.heading-secondary {
+  font-size: 2rem;
+  font-weight: 200;
+  color: #284b63;
+  text-align: center; }
+
+.u-margin-bottom-small {
+  margin-bottom: 2rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-big {
+  margin-bottom: 6rem; }
+
+.btn, .btn:link, .btn:visited {
+  border-radius: 50px;
+  width: 70%;
+  font-size: 2rem;
+  font-weight: 200;
+  color: white;
+  border: none;
+  padding: 2rem;
+  margin: auto auto;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transition: all .3s;
+  cursor: pointer; }
+  .btn:hover, .btn:link:hover, .btn:visited:hover {
+    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-0.5rem); }
+
+.btn--primary {
+  background-color: #284b63; }
+
+.form {
+  display: flex;
+  flex-direction: column; }
+  .form__group:not(:last-child) {
+    margin-bottom: 2rem; }
+  .form__label {
+    display: block;
+    font-size: 1.5rem;
+    color: #284b63;
+    margin-left: 1rem; }
+  .form__input {
+    display: block;
+    padding: 1.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    transition: box-shadow .2s;
+    font-size: 1.5rem; }
+    .form__input:focus {
+      border: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      outline: none; }
+
+.header {
+  background-color: #284b63;
+  padding: 2rem;
+  display: flex; }
+  .header__auth {
+    display: flex; }
+  .header__button, .header__button:link, .header__button:visited {
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: white; }
+    .header__button::after, .header__button:link::after, .header__button:visited::after {
+      display: block;
+      content: "";
+      border-bottom: 2px solid white;
+      transform: scale(0);
+      transition: transform .2s ease-in-out; }
+    .header__button:hover::after, .header__button:link:hover::after, .header__button:visited:hover::after {
+      transform: scale(1); }
+
+.signup {
+  width: 100%;
+  height: calc(100% - 70px);
+  display: grid;
+  grid-template-columns: 50%; }
+  .signup__side {
+    grid-area: 1;
+    padding: 2rem 4rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+  .signup__social {
+    background-image: linear-gradient(to right bottom, rgba(40, 75, 99, 0.7), rgba(60, 110, 113, 0.7)), url(./img/woman.jpg);
+    background-size: cover;
+    background-position: bottom;
+    height: 100%;
+    overflow: hidden; }
+  .signup__fb {
+    background-color: #3B5998;
+    border-radius: unset; }
+  .signup__google {
+    background-color: #EA4335;
+    border-radius: unset; }
+  .signup__icon {
+    transform: scale(2);
+    margin-left: 2rem; }
