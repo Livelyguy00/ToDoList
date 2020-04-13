@@ -1,4 +1,25 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "pies@pies.pies",
+      "password": "pies",
+      "password_2": "pies",
+      "id": 1
+    },
+    {
+      "email": "test@test.test",
+      "password": "test",
+      "password_2": "test",
+      "id": 2
+    },
+    {
+      "formValues": {
+        "email": "kot@kot.kot",
+        "password": "kot",
+        "password_2": "kot"
+      },
+      "id": 3
+    }
+  ],
   "tasks": []
 }

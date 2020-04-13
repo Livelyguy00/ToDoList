@@ -21,17 +21,23 @@
     width: 100%;
     border: none;
     border-radius: 50px;
-    transition: box-shadow .2s;
+    transition: all .2s;
     font-size: 1.5rem;
 
     &:focus{
       border: none;
       box-shadow: 0 1rem 2rem rgba($black, .2);
       outline: none;
+      transition: all .2s;
+
+      &:invalid{
+        border-bottom: 2px solid orangered;
+      }
     }
   }
 
   &__message{
-
+    color: orangered;
+    margin-left: 2rem;
   }
 }

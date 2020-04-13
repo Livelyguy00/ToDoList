@@ -13,6 +13,10 @@
       text-decoration: none;
       font-size: 1.7rem;
       color: $white;
+      
+      &:not(:last-child){
+        margin-right: 2rem;
+      }
 
       &::after{
         display: block;

@@ -77,12 +77,18 @@ body {
     width: 100%;
     border: none;
     border-radius: 50px;
-    transition: box-shadow .2s;
+    transition: all .2s;
     font-size: 1.5rem; }
     .form__input:focus {
       border: none;
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-      outline: none; }
+      outline: none;
+      transition: all .2s; }
+      .form__input:focus:invalid {
+        border-bottom: 2px solid orangered; }
+  .form__message {
+    color: orangered;
+    margin-left: 2rem; }
 
 .header {
   background-color: #284b63;
@@ -94,6 +100,8 @@ body {
     text-decoration: none;
     font-size: 1.7rem;
     color: white; }
+    .header__button:not(:last-child), .header__button:link:not(:last-child), .header__button:visited:not(:last-child) {
+      margin-right: 2rem; }
     .header__button::after, .header__button:link::after, .header__button:visited::after {
       display: block;
       content: "";

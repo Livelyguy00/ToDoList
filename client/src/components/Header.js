@@ -7,6 +7,7 @@ class Header extends React.Component{
       <div className='header'>
         <div className='header__auth'>
           <Link to='/signup' className='header__button'>Sign up</Link>
+          <Link to='/signin' className='header__button'>Sign in</Link>
         </div>
         <div className='header__nav'>
 
