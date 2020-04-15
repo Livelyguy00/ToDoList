@@ -3,6 +3,7 @@
   flex-direction: column;
 
   &__group{
+    padding: 1rem;
     &:not(:last-child){
       margin-bottom: 2rem;
     }
@@ -20,17 +21,20 @@
     padding: 1.5rem;
     width: 100%;
     border: none;
+    border-bottom: 2px solid transparent;
     border-radius: 50px;
     transition: all .2s;
     font-size: 1.5rem;
 
     &:focus{
       border: none;
+      border-bottom: 2px solid transparent;
       box-shadow: 0 1rem 2rem rgba($black, .2);
       outline: none;
       transition: all .2s;
 
       &:invalid{
+        border: none;
         border-bottom: 2px solid orangered;
       }
     }

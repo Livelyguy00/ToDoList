@@ -30,7 +30,7 @@ class SignUp extends React.Component {
   render(){
     return(
       <div className='signup'>
-        <form className='form signup__side' onSubmit={ this.props.handleSubmit(this.onSubmit) }>
+        <form className='form signup__side' onSubmit={ this.props.handleSubmit(this.onSubmit) } method='POST' action='/signup'>
           <h2 className='heading-secondary u-margin-bottom-small'>Create Account</h2>
           <Field name='email' component={ this.renderInput } label='Enter an email' type='email' />
           <Field name='password' component={ this.renderInput } label='Enter a password' type='password' />

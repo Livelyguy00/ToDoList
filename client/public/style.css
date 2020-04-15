@@ -42,6 +42,15 @@ body {
 .u-margin-bottom-big {
   margin-bottom: 6rem; }
 
+.u-margin-top-small {
+  margin-top: 2rem; }
+
+.u-margin-top-medium {
+  margin-top: 4rem; }
+
+.u-margin-top-big {
+  margin-top: 6rem; }
+
 .btn, .btn:link, .btn:visited {
   border-radius: 50px;
   width: 70%;
@@ -50,7 +59,8 @@ body {
   color: white;
   border: none;
   padding: 2rem;
-  margin: auto auto;
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   transition: all .3s;
   cursor: pointer; }
@@ -64,8 +74,10 @@ body {
 .form {
   display: flex;
   flex-direction: column; }
-  .form__group:not(:last-child) {
-    margin-bottom: 2rem; }
+  .form__group {
+    padding: 1rem; }
+    .form__group:not(:last-child) {
+      margin-bottom: 2rem; }
   .form__label {
     display: block;
     font-size: 1.5rem;
@@ -76,15 +88,18 @@ body {
     padding: 1.5rem;
     width: 100%;
     border: none;
+    border-bottom: 2px solid transparent;
     border-radius: 50px;
     transition: all .2s;
     font-size: 1.5rem; }
     .form__input:focus {
       border: none;
+      border-bottom: 2px solid transparent;
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
       outline: none;
       transition: all .2s; }
       .form__input:focus:invalid {
+        border: none;
         border-bottom: 2px solid orangered; }
   .form__message {
     color: orangered;
@@ -137,3 +152,6 @@ body {
   .signup__icon {
     transform: scale(2);
     margin-left: 2rem; }
+
+.signin {
+  padding: 5rem; }

@@ -27,12 +27,14 @@ class SignIn extends React.Component{
 
   render(){
     return(
-      <form className='form' onSubmit={ this.props.handleSubmit(this.onSubmit) }>
-        <h2 className='heading-secondary u-margin-bottom-small'>Login</h2>
-        <Field name='email' component={ this.renderInput } type='email' label='Enter an email'/>
-        <Field name='password' component={ this.renderInput } type='password' label='Enter a password'/>
-        <button className='btn btn--primary'>Submit</button>
-      </form>
+      <div className='signin'>
+        <form className='form' onSubmit={ this.props.handleSubmit(this.onSubmit) }>
+          <h2 className='heading-secondary u-margin-bottom-small'>Login</h2>
+          <Field name='email' component={ this.renderInput } type='email' label='Enter an email'/>
+          <Field name='password' component={ this.renderInput } type='password' label='Enter a password'/>
+          <button className='u-margin-top-small btn btn--primary'>Submit</button>
+        </form>
+      </div>
     );
   }
 }
