@@ -36,7 +36,7 @@ register = (req, res) => {
     })
 }
 
-login = async (req, res) => {
+login = (req, res) => {
   const body = req.body;
 
   if(!body){
@@ -46,13 +46,12 @@ login = async (req, res) => {
     })
   }
 
-  await User.findOne({
-    email: body.email, 
-    password: CryptoJS.AES.encrypt(body.password, 'key').toString()
-  }, (err, user) => {
+  User.find({}, (err, user) => {
+    console.log(CryptoJS.AES.encrypt(body.password, 'key').toString())
     if(err){
       return res.status(400).json({success: false, error: err})
     }
+     
     if(!user){
       return res.status(404).json({success: false, error: 'Incorrect login or password'})
     }
@@ -63,4 +62,5 @@ login = async (req, res) => {
 
 module.exports = {
   register,
+  login
 }

@@ -10,8 +10,8 @@ export const signUp = ({email, password, password_2}) => async dispatch => {
   history.push('/signin')
 }
 
-export const signIn = (formValues) => async dispatch => {
-  const response = api.post('/signin', formValues)
+export const signIn = ({ email, password }) => async dispatch => {
+  const response = api.post('/signin', {email, password})
   await dispatch({
     type: SIGN_IN,
     payload: response.data
