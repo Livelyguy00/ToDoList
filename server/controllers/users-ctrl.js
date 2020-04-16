@@ -4,7 +4,7 @@ const User = require('../models/user-model')
 register = (req, res) => {
   const body = req.body
   
-  body.password = CryptoJS.AES.encrypt(body.password,'key').toString();
+  body.password = CryptoJS.SHA1(body.password).toString();
 
   if(!body){
     return res.status(400).json({
@@ -36,7 +36,7 @@ register = (req, res) => {
     })
 }
 
-login = (req, res) => {
+login = async (req, res) => {
   const body = req.body;
 
   if(!body){
@@ -46,8 +46,10 @@ login = (req, res) => {
     })
   }
 
-  User.find({}, (err, user) => {
-    console.log(CryptoJS.AES.encrypt(body.password, 'key').toString())
+  await User.findOne({
+    email: body.email,
+    password: CryptoJS.SHA1(body.password).toString()
+  }, (err, user) => {
     if(err){
       return res.status(400).json({success: false, error: err})
     }
