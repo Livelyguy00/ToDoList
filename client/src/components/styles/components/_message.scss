@@ -1,0 +1,13 @@
+.message__box{
+  position: fixed;
+  top: 7rem;
+  width: 100%;
+  background-color: rgba(orangered, .8);
+  padding: 1rem;
+  text-align: center;
+  animation: alert 5s forwards;
+}
+
+.message__content{
+  font-size: 1.6rem;
+}

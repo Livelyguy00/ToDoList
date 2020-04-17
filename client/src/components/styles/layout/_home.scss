@@ -1,0 +1,11 @@
+.home{
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($primary, .3),
+    rgba($secondary, .3)
+  ), url(./img/organisation.jpg);
+  background-size: cover;
+}

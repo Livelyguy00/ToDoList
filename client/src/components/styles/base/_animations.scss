@@ -1,0 +1,22 @@
+@keyframes alert {
+  0%{
+    display: block;
+    opacity: 0;
+    transform: translateY(-7rem);
+  }
+  10%{
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90%{
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(-7rem);
+    display: none;
+  }
+}

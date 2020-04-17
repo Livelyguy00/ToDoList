@@ -1,3 +1,21 @@
+@keyframes alert {
+  0% {
+    display: block;
+    opacity: 0;
+    transform: translateY(-7rem); }
+  10% {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); }
+  90% {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); }
+  100% {
+    opacity: 0;
+    transform: translateY(-7rem);
+    display: none; } }
+
 *, ::after, ::before {
   margin: 0;
   padding: 0;
@@ -18,7 +36,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: #d9d9d9;
-  height: 60vh;
+  height: auto;
   width: 60vw; }
 
 body {
@@ -26,6 +44,14 @@ body {
   font-weight: 400;
   color: white;
   line-height: 1.7; }
+
+.heading-primary {
+  font-size: 4rem;
+  font-weight: 100;
+  color: #3c6e71;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
 
 .heading-secondary {
   font-size: 2rem;
@@ -51,14 +77,20 @@ body {
 .u-margin-top-big {
   margin-top: 6rem; }
 
+.u-text-white {
+  color: white; }
+
+.u-text-grey {
+  color: #d9d9d9; }
+
 .btn, .btn:link, .btn:visited {
+  text-decoration: none;
   border-radius: 50px;
-  width: 70%;
   font-size: 2rem;
   font-weight: 200;
   color: white;
   border: none;
-  padding: 2rem;
+  padding: 2rem 4rem;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -105,6 +137,29 @@ body {
     color: orangered;
     margin-left: 2rem; }
 
+.message__box {
+  position: fixed;
+  top: 7rem;
+  width: 100%;
+  background-color: rgba(255, 69, 0, 0.8);
+  padding: 1rem;
+  text-align: center;
+  animation: alert 5s forwards; }
+
+.message__content {
+  font-size: 1.6rem; }
+
+.list {
+  list-style: none;
+  margin: 2rem auto;
+  width: 50%;
+  background-color: rgba(60, 110, 113, 0.8);
+  padding: 1rem; }
+  .list__el {
+    color: #d9d9d9;
+    font-size: 1.5rem;
+    text-align: center; }
+
 .header {
   background-color: #284b63;
   padding: 2rem;
@@ -136,7 +191,8 @@ body {
     padding: 2rem 4rem;
     height: 100%;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    justify-content: space-around; }
   .signup__social {
     background-image: linear-gradient(to right bottom, rgba(40, 75, 99, 0.7), rgba(60, 110, 113, 0.7)), url(./img/woman.jpg);
     background-size: cover;
@@ -155,3 +211,10 @@ body {
 
 .signin {
   padding: 5rem; }
+
+.home {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to right bottom, rgba(40, 75, 99, 0.3), rgba(60, 110, 113, 0.3)), url(./img/organisation.jpg);
+  background-size: cover; }
