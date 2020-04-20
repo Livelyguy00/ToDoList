@@ -4,12 +4,12 @@ import history from '../history';
 
 export const signUp = ({email, password, password_2}) => async dispatch => {
   if(password === password_2){
-    const request = await api.post('/signup', ({email, password}));
+    const response = await api.post('/signup', ({email, password}));
     await dispatch({
       type: SIGN_UP,
-      payload: request.data.message
+      payload: response.data.message
     })
-    if(request.data.success === true){
+    if(response.data.success === true){
       history.push('/signin')
     }
     else{
@@ -20,9 +20,27 @@ export const signUp = ({email, password, password_2}) => async dispatch => {
 
 export const signIn = ({ email, password }) => async dispatch => {
   const response = await api.post('/signin', {email, password})
+   
+  const token = response.data.token;
+  localStorage.setItem('token', token);
+
+  await console.log(response)
   await dispatch({
     type: SIGN_IN,
     payload: response.data.data
   })
   history.push('/')
+}
+
+export const fetchUser = () => dispatch => {
+  const token = localStorage.token;
+  if(token){
+    const response = api.get('/user', {headers: {'Authorization':`Bearer ${token}`}})
+
+    console.log(response.data)
+    dispatch({
+      type: SIGN_IN,
+      payload: response.data
+    })
+  }
 }
