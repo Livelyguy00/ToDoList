@@ -1,5 +1,5 @@
 import api from '../apis/index';
-import { SIGN_IN, SIGN_UP } from './types';
+import { SIGN_IN, SIGN_UP, SIGN_OUT } from './types';
 import history from '../history';
 
 export const signUp = ({email, password, password_2}) => async dispatch => {
@@ -24,7 +24,6 @@ export const signIn = ({ email, password }) => async dispatch => {
   const token = response.data.token;
   localStorage.setItem('token', token);
 
-  await console.log(response)
   await dispatch({
     type: SIGN_IN,
     payload: response.data.data
@@ -32,15 +31,23 @@ export const signIn = ({ email, password }) => async dispatch => {
   history.push('/')
 }
 
-export const fetchUser = () => dispatch => {
-  const token = localStorage.token;
+export const fetchUser = () => async dispatch => {
+  const token = localStorage.token
   if(token){
-    const response = api.get('/user', {headers: {'Authorization':`Bearer ${token}`}})
+    const response = await api.get('/user', {headers: {'Authorization':'Bearer ' + token}})
 
-    console.log(response.data)
-    dispatch({
+    await dispatch({
       type: SIGN_IN,
-      payload: response.data
+      payload: response.data.authData.userId
     })
   }
+}
+
+export const SignOut = () => async dispatch => {
+  localStorage.removeItem('token')
+
+  await dispatch({
+    type: SIGN_OUT
+  })
+  history.push('/')
 }

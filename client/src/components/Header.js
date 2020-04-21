@@ -1,13 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { SignOut } from '../actions/index';
 
 class Header extends React.Component{
+  onSignOutClick(){
+    this.props.SignOut()
+  }
+
   loggedRender(){
     if(this.props.isSignedIn){
       return(
         <>
-          <Link to='signout' className='header__button'>Sign out</Link>
+          <a className='header__button' onClick={() => this.onSignOutClick()}>Sign out</a>
         </>
       )
     }
@@ -55,4 +60,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps,{})(Header);
+export default connect(mapStateToProps,{ SignOut })(Header);

@@ -44,7 +44,6 @@ register = async (req, res) => {
 
 //logowanie
 login = async (req, res) => {
-  console.log(req.headers)
   const body = req.body;
 
   if(!body){
@@ -102,11 +101,35 @@ fetchUsers = (req, res) => {
 
 //fetching user by token
 fetchUser = (req, res) => {
-  return res
-}
+  const header = req.headers['authorization']
+
+  if(typeof header !== 'undefined'){
+    const bearer = header.split(' ');
+    const token = bearer[1]
+    req.token = token
+
+  }else{
+    res.status(403)
+  }
+
+  jwt.verify(req.token, JWT_KEY, (err, authData) => {
+    if(err){
+      console.log(err);
+      res.status(403);
+    }
+    else{
+      console.log(authData)
+      res.json({
+        message: 'Successful log in',
+        authData
+      })
+    }
+  })
+};
 
 module.exports = {
   register,
   login,
-  fetchUsers
+  fetchUsers,
+  fetchUser
 }
