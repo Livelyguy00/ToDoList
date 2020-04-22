@@ -74,6 +74,7 @@ login = async (req, res) => {
         expiresIn: "1h"
       })
       return res.status(200).json({
+        userId: user._id,
         token: token,
         message: 'Login success'
       })
@@ -114,11 +115,9 @@ fetchUser = (req, res) => {
 
   jwt.verify(req.token, JWT_KEY, (err, authData) => {
     if(err){
-      console.log(err);
       res.status(403);
     }
     else{
-      console.log(authData)
       res.json({
         message: 'Successful log in',
         authData

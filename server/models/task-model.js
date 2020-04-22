@@ -6,7 +6,8 @@ const Tasks = new Schema(
     name: { type: String, required: true },
     description: {type: String, required: false},
     creator: { type: String, required: true },
-    important: { type: Boolean, required: false, default: false }
+    important: { type: Boolean, required: false, default: false },
+    succeed: { type: Boolean, required: false, default: false }
   }
 )
 

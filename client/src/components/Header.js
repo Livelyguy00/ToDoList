@@ -12,7 +12,7 @@ class Header extends React.Component{
     if(this.props.isSignedIn){
       return(
         <>
-          <a className='header__button' onClick={() => this.onSignOutClick()}>Sign out</a>
+          <button className='header__button' onClick={() => this.onSignOutClick()}>Sign out</button>
         </>
       )
     }

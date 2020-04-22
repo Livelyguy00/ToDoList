@@ -28,7 +28,7 @@ export const signIn = ({ email, password }) => async dispatch => {
     type: SIGN_IN,
     payload: response.data.data
   })
-  history.push('/')
+  history.push('/tasks')
 }
 
 export const fetchUser = () => async dispatch => {

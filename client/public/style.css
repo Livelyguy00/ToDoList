@@ -170,7 +170,9 @@ body {
     text-decoration: none;
     font-size: 1.7rem;
     color: white;
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: transparent;
+    border: none; }
     .header__button:not(:last-child), .header__button:link:not(:last-child), .header__button:visited:not(:last-child) {
       margin-right: 2rem; }
     .header__button::after, .header__button:link::after, .header__button:visited::after {

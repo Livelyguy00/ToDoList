@@ -3,6 +3,7 @@ import Header from './Header';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import Home from './Home';
+import Tasks from './tasksComponents/Tasks';
 import history from '../history';
 import { Router, Switch, Route } from 'react-router-dom';
 
@@ -24,6 +25,7 @@ class App extends React.Component {
               <Route path='/signup' exact component = { SignUp } />
               <Route path='/signin' exact component = { SignIn } />
               <Route path='/' exact component = { Home } />
+              <Route path='/tasks' exact component = { Tasks } />
             </Switch>
           </main>
         </Router>

@@ -7,8 +7,8 @@ class Home extends React.Component {
     if(this.props.isSignedIn){
       return (
         <>
-          <h2 className='heading-secondary u-margin-top-medium u-text-white'>Add your tasks now</h2>
-          <Link to='/addtask' className='btn btn--primary'>Add task</Link>
+          <h2 className='heading-secondary u-margin-top-medium u-text-white'>Menage your tasks now</h2>
+          <Link to='/addtask' className='btn btn--primary'>Tasks</Link>
         </>
       )
     }
