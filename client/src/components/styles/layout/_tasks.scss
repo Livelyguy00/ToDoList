@@ -1,0 +1,97 @@
+.tasks{
+  padding: 2rem;
+}
+
+.task{
+  padding: 1.5rem;
+  border: 1px solid $grey;
+  font-size: 2rem;
+  color: $black;
+
+  &__check{
+    visibility: hidden;
+    
+    &--custom{
+      display: inline-block;
+      height: 2.5rem;
+      width: 2.5rem;
+      background-color: transparent;
+      border: 1px solid $tertiary;
+      position: relative;
+    }
+
+    &--icon{
+      color: $primary;
+      transform: scale(0.9) translateX(.15rem) translateY(-.3rem);
+    }
+  }
+
+  &__name{
+
+  }
+
+  &__data{
+
+  }
+
+  &__icon{
+
+  }
+}
+
+.addTask{
+  border-bottom: 2px solid $primary;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+
+  &__visible{
+    color: $primary;
+    font-size: 2rem;
+    text-align: right;
+
+    &--label{
+      padding-right: 2rem;
+    }
+
+    &--checkbox{
+      display: none;
+    }
+
+    &--btn{
+      display: inline-block;
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      background-color: $primary;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s;
+      
+      &::after, &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1.5rem;
+        height: 3px;
+        background-color: $white;
+      }
+
+      &::after{
+        transform: translateX(.8rem) translateY(1.35rem);
+      }
+
+      &::before{
+        transform: rotate(90deg) translateY(-.8rem) translateX(1.35rem);
+      }
+
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__form{
+    display: none;
+  }
+}

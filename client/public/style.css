@@ -221,3 +221,62 @@ body {
   flex-direction: column;
   background-image: linear-gradient(to right bottom, rgba(40, 75, 99, 0.3), rgba(60, 110, 113, 0.3)), url(./img/organisation.jpg);
   background-size: cover; }
+
+.tasks {
+  padding: 2rem; }
+
+.task {
+  padding: 1.5rem;
+  border: 1px solid #d9d9d9;
+  font-size: 2rem;
+  color: #000; }
+  .task__check {
+    visibility: hidden; }
+    .task__check--custom {
+      display: inline-block;
+      height: 2.5rem;
+      width: 2.5rem;
+      background-color: transparent;
+      border: 1px solid #353535;
+      position: relative; }
+    .task__check--icon {
+      color: #284b63;
+      transform: scale(0.9) translateX(0.15rem) translateY(-0.3rem); }
+
+.addTask {
+  border-bottom: 2px solid #284b63;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem; }
+  .addTask__visible {
+    color: #284b63;
+    font-size: 2rem;
+    text-align: right; }
+    .addTask__visible--label {
+      padding-right: 2rem; }
+    .addTask__visible--checkbox {
+      display: none; }
+    .addTask__visible--btn {
+      display: inline-block;
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      background-color: #284b63;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s; }
+      .addTask__visible--btn::after, .addTask__visible--btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1.5rem;
+        height: 3px;
+        background-color: white; }
+      .addTask__visible--btn::after {
+        transform: translateX(0.8rem) translateY(1.35rem); }
+      .addTask__visible--btn::before {
+        transform: rotate(90deg) translateY(-0.8rem) translateX(1.35rem); }
+      .addTask__visible--btn:hover {
+        transform: scale(1.1); }
+  .addTask__form {
+    display: none; }
