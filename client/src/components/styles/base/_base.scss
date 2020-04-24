@@ -22,6 +22,6 @@ body{
 .main{
   @include absoluteCentered;
   background-color: $grey;
-  height: auto;
+  height: 60vh;
   width: 60vw;
 }

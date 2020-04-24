@@ -22,7 +22,7 @@
 
     &--icon{
       color: $primary;
-      transform: scale(0.9) translateX(.15rem) translateY(-.3rem);
+      transform: scale(0.9) translateX(.15rem) translateY(-.4rem);
     }
   }
 
@@ -54,7 +54,7 @@
     }
 
     &--checkbox{
-      display: none;
+      visibility: hidden;
     }
 
     &--btn{
@@ -92,6 +92,6 @@
   }
 
   &__form{
-    display: none;
+    
   }
 }

@@ -11,7 +11,7 @@ class Tasks extends React.Component {
         <AddTask />
         <div className='task'>
           <input className='task__check' type='checkbox' id='succeed' name='succeed' />
-          <label for='succeed' className='task__check--label'>
+          <label htmlFor='succeed' className='task__check--label'>
             <span className='task__check--custom'>
               <FontAwesomeIcon icon={ faCheck } className='task__check--icon'/>
             </span>

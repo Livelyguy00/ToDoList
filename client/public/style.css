@@ -16,6 +16,24 @@
     transform: translateY(-7rem);
     display: none; } }
 
+.fadeForm-enter {
+  opacity: 0;
+  transform: translateY(-3rem); }
+
+.fadeForm-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 500ms; }
+
+.fadeForm-exit {
+  opacity: 1;
+  transform: translateY(0); }
+
+.fadeForm-exit-active {
+  opacity: 0;
+  transform: translateY(-3rem);
+  transition: all 500ms; }
+
 *, ::after, ::before {
   margin: 0;
   padding: 0;
@@ -36,7 +54,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: #d9d9d9;
-  height: auto;
+  height: 60vh;
   width: 60vw; }
 
 body {
@@ -241,7 +259,7 @@ body {
       position: relative; }
     .task__check--icon {
       color: #284b63;
-      transform: scale(0.9) translateX(0.15rem) translateY(-0.3rem); }
+      transform: scale(0.9) translateX(0.15rem) translateY(-0.4rem); }
 
 .addTask {
   border-bottom: 2px solid #284b63;
@@ -254,7 +272,7 @@ body {
     .addTask__visible--label {
       padding-right: 2rem; }
     .addTask__visible--checkbox {
-      display: none; }
+      visibility: hidden; }
     .addTask__visible--btn {
       display: inline-block;
       height: 3rem;
@@ -278,5 +296,3 @@ body {
         transform: rotate(90deg) translateY(-0.8rem) translateX(1.35rem); }
       .addTask__visible--btn:hover {
         transform: scale(1.1); }
-  .addTask__form {
-    display: none; }

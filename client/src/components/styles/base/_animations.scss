@@ -20,3 +20,26 @@
     display: none;
   }
 }
+
+//react-transition-group classes
+.fadeForm-enter{
+  opacity: 0;
+  transform: translateY(-3rem);
+}
+
+.fadeForm-enter-active{
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 500ms;
+}
+
+.fadeForm-exit{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeForm-exit-active{
+  opacity: 0;
+  transform: translateY(-3rem);
+  transition: all 500ms;
+}
