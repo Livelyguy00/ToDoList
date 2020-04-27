@@ -2,6 +2,9 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
+
 
 
 class AddTask extends React.Component {
@@ -9,6 +12,7 @@ class AddTask extends React.Component {
     super(props);
     this.state = {
       isChecked: false,
+      date: null
     };
   }
 
@@ -18,36 +22,58 @@ class AddTask extends React.Component {
     });
   }
 
+  renderDatepicker = (state) => {
+    console.log(state)
+    
+    return(
+      <DatePicker
+        className="datepicker__input" 
+        selected={ new Date() }
+        onChange={ date => state.input.value = date }
+        showTimeSelect
+        timeFormat="HH:mm"
+        timeIntervals={15}
+        timeCaption="time"
+        dateFormat="MMMM d, yyyy h:mm aa"
+      />
+    )
+  }
+
+  renderInput = ({ input, type }) => {
+    return(
+      <input 
+        type={type} 
+        className='addTask__form--input' 
+        { ...input }
+        autoComplete='off'
+      />
+    );
+  }
+
   renderAddForm(){
     if(this.state.isChecked){
       return(
         <CSSTransition timeout={1000} classNames='fadeForm'>
           <div className='addTask__form'>
-            <Field type='text' name='name' component={ this.renderInput } label='Enter name of task'/>
-            <Field type='text' name='description' component={ this.renderInput } label='Add description'/>
-            <Field type='checkbox' name='importance' component={ this.renderInput } label='Important!'/>
+            <div className='addTask__form--labels'>
+              <span className='addTask__form--label'>Name</span>
+              <span className='addTask__form--label'>Description</span>
+              <span className='addTask__form--label'>Date</span>
+              <span className='addTask__form--label'>Important</span>
+              <span className='addTask__form--label'>ADD</span>
+            </div>
+            <div className='addTask__form--inputs'>
+              <Field type='text' name='name' component={ this.renderInput } label='Enter name of task'/>
+              <Field type='text' name='description' component={ this.renderInput } label='Add description'/>
+              <Field name='date' component={ this.renderDatepicker } label='Enter date'/>
+              <Field type='checkbox' name='importance' component={ this.renderInput } label='Important!'/>
+              <button type='submit' />
+            </div>
           </div>
         </CSSTransition>
       )
     }
     return null;
-  }
-
-  renderInput = ({ input, meta, label, type }) => {
-    return(
-      <div className='tasks__group'>
-        <label className='tasks__label'>{label}</label>
-        <input 
-          type={type} 
-          className='tasks__input' 
-          { ...input }
-          autoComplete='off'
-        />
-        <div className='tasks__message'>
-          { meta.error }
-        </div>
-      </div>
-    );
   }
 
   render(){

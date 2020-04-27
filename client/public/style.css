@@ -178,6 +178,9 @@ body {
     font-size: 1.5rem;
     text-align: center; }
 
+.datepicker__input {
+  width: 100%; }
+
 .header {
   background-color: #284b63;
   padding: 2rem;
@@ -206,7 +209,7 @@ body {
   width: 100%;
   height: calc(100% - 70px);
   display: grid;
-  grid-template-columns: 50%; }
+  grid-template-columns: 2; }
   .signup__side {
     grid-area: 1;
     padding: 2rem 4rem;
@@ -235,6 +238,7 @@ body {
 
 .home {
   padding: 3rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(to right bottom, rgba(40, 75, 99, 0.3), rgba(60, 110, 113, 0.3)), url(./img/organisation.jpg);
@@ -296,3 +300,19 @@ body {
         transform: rotate(90deg) translateY(-0.8rem) translateX(1.35rem); }
       .addTask__visible--btn:hover {
         transform: scale(1.1); }
+  .addTask__form {
+    margin-top: 1rem; }
+    .addTask__form--labels, .addTask__form--inputs {
+      display: grid;
+      grid-template-columns: 25% 45% 15% 7.5% 7.5%; }
+    .addTask__form--label {
+      text-align: center;
+      color: #000; }
+    .addTask__form--inputs {
+      width: 100%;
+      border-radius: 5px;
+      background-color: white; }
+    .addTask__form--input {
+      height: 100%;
+      padding: 1.5rem;
+      font-size: 2rem; }
