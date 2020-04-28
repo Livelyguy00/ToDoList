@@ -179,7 +179,11 @@ body {
     text-align: center; }
 
 .datepicker__input {
-  width: 100%; }
+  width: 100%;
+  height: 80%;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: none; }
 
 .header {
   background-color: #284b63;
@@ -307,12 +311,28 @@ body {
       grid-template-columns: 25% 45% 15% 7.5% 7.5%; }
     .addTask__form--label {
       text-align: center;
-      color: #000; }
+      color: #000;
+      font-size: 1.5rem; }
     .addTask__form--inputs {
       width: 100%;
       border-radius: 5px;
-      background-color: white; }
+      background-color: white;
+      overflow: hidden; }
     .addTask__form--input {
-      height: 100%;
+      height: 80%;
       padding: 1.5rem;
-      font-size: 2rem; }
+      font-size: 1.5rem;
+      border: none;
+      width: 100%; }
+    .addTask__form--span {
+      height: 100%;
+      display: inline-block;
+      position: relative; }
+      .addTask__form--span::after {
+        content: '';
+        position: absolute;
+        height: 3px;
+        width: 80%;
+        background-color: #d9d9d9;
+        left: 10%;
+        top: 80%; }

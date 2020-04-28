@@ -41,12 +41,14 @@ class AddTask extends React.Component {
 
   renderInput = ({ input, type }) => {
     return(
-      <input 
-        type={type} 
-        className='addTask__form--input' 
-        { ...input }
-        autoComplete='off'
-      />
+      <span className='addTask__form--span'>
+        <input 
+          type={type} 
+          className='addTask__form--input' 
+          { ...input }
+          autoComplete='off'
+        />
+      </span>
     );
   }
 
@@ -60,7 +62,7 @@ class AddTask extends React.Component {
               <span className='addTask__form--label'>Description</span>
               <span className='addTask__form--label'>Date</span>
               <span className='addTask__form--label'>Important</span>
-              <span className='addTask__form--label'>ADD</span>
+              <span className='addTask__form--label'>&nbsp;</span>
             </div>
             <div className='addTask__form--inputs'>
               <Field type='text' name='name' component={ this.renderInput } label='Enter name of task'/>
