@@ -27,12 +27,15 @@
 
 .fadeForm-exit {
   opacity: 1;
-  transform: translateY(0); }
+  transform: translateY(0);
+  height: 100%; }
 
 .fadeForm-exit-active {
   opacity: 0;
   transform: translateY(-3rem);
-  transition: all 500ms; }
+  transition: all 500ms;
+  height: 0;
+  display: none; }
 
 *, ::after, ::before {
   margin: 0;
@@ -100,6 +103,9 @@ body {
 
 .u-text-grey {
   color: #d9d9d9; }
+
+.u-visibility-hidden {
+  visibility: hidden; }
 
 .btn, .btn:link, .btn:visited {
   text-decoration: none;
@@ -270,9 +276,7 @@ body {
       transform: scale(0.9) translateX(0.15rem) translateY(-0.4rem); }
 
 .addTask {
-  border-bottom: 2px solid #284b63;
-  padding-bottom: 2rem;
-  margin-bottom: 2rem; }
+  padding-bottom: 2rem; }
   .addTask__visible {
     color: #284b63;
     font-size: 2rem;
@@ -305,14 +309,16 @@ body {
       .addTask__visible--btn:hover {
         transform: scale(1.1); }
   .addTask__form {
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #284b63; }
     .addTask__form--labels, .addTask__form--inputs {
       display: grid;
       grid-template-columns: 25% 45% 15% 7.5% 7.5%; }
     .addTask__form--label {
-      text-align: center;
       color: #000;
-      font-size: 1.5rem; }
+      font-size: 1.5rem;
+      padding-left: 1rem; }
     .addTask__form--inputs {
       width: 100%;
       border-radius: 5px;
@@ -333,6 +339,33 @@ body {
         position: absolute;
         height: 3px;
         width: 80%;
+        margin-left: 1rem;
         background-color: #d9d9d9;
-        left: 10%;
-        top: 80%; }
+        top: 80%;
+        left: 0; }
+    .addTask__form--checkbox {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      display: inline-block;
+      border: 2px solid #d9d9d9;
+      position: relative;
+      transform: translate(1.5rem, 1rem);
+      cursor: pointer; }
+      .addTask__form--checkbox-icon {
+        color: #000;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(2.5); }
+    .addTask__form--button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer; }
+      .addTask__form--button-icon {
+        transform: scale(2);
+        color: #284b63;
+        transition: all 0.3s; }
+        .addTask__form--button-icon:hover {
+          transform: scale(2.2);
+          color: #3c6e71; }

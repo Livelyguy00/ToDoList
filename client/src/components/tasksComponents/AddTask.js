@@ -2,6 +2,8 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamation, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -11,20 +13,28 @@ class AddTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isChecked: false,
-      date: null
+      isFormVisible: false,
+      isImportant: false
     };
   }
 
-  toggleCheckbox = () => {
-    this.setState({
-      isChecked: !this.state.isChecked,
+  onSubmit = (state) => {
+    console.log(state)
+  }
+
+  toggleForm = () => {
+    this.setState({ 
+      isFormVisible: !this.state.isFormVisible,
+    });
+  }
+
+  toggleImportant = () => {
+    this.setState({ 
+      isImportant: !this.state.isImportant,
     });
   }
 
   renderDatepicker = (state) => {
-    console.log(state)
-    
     return(
       <DatePicker
         className="datepicker__input" 
@@ -39,7 +49,36 @@ class AddTask extends React.Component {
     )
   }
 
-  renderInput = ({ input, type }) => {
+  renderImportant(){
+    if(this.state.isImportant){
+      return (
+        <FontAwesomeIcon icon={faExclamation} className='addTask__form--checkbox-icon' />
+      )
+    }
+  }
+
+  renderInput = ({ input, type, label }) => {
+    if(type === 'checkbox'){
+      return(
+        <span className='addTask__form--span'>
+          <label htmlFor='important'>
+            <span className='addTask__form--checkbox'>
+              { this.renderImportant() }
+            </span>
+          </label>
+          <input 
+            id='important'
+            type={type}
+            checked={ this.state.isImportant } 
+            onChange={ this.toggleImportant() }
+            className='addTask__form--input u-visibility-hidden' 
+            { ...input }
+            autoComplete='off'
+          />
+        </span>
+      )
+    }
+
     return(
       <span className='addTask__form--span'>
         <input 
@@ -53,7 +92,7 @@ class AddTask extends React.Component {
   }
 
   renderAddForm(){
-    if(this.state.isChecked){
+    if(this.state.isFormVisible){
       return(
         <CSSTransition timeout={1000} classNames='fadeForm'>
           <div className='addTask__form'>
@@ -64,13 +103,15 @@ class AddTask extends React.Component {
               <span className='addTask__form--label'>Important</span>
               <span className='addTask__form--label'>&nbsp;</span>
             </div>
-            <div className='addTask__form--inputs'>
-              <Field type='text' name='name' component={ this.renderInput } label='Enter name of task'/>
-              <Field type='text' name='description' component={ this.renderInput } label='Add description'/>
-              <Field name='date' component={ this.renderDatepicker } label='Enter date'/>
-              <Field type='checkbox' name='importance' component={ this.renderInput } label='Important!'/>
-              <button type='submit' />
-            </div>
+            <form className='addTask__form--inputs' onSubmit={ this.props.handleSubmit(this.onSubmit) }>
+              <Field type='text' name='name' component={ this.renderInput } />
+              <Field type='text' name='description' component={ this.renderInput } />
+              <Field name='date' component={ this.renderInput } type='date' />
+              <Field type='checkbox' name='importance' component={ this.renderInput }/>
+              <button type='submit' className='addTask__form--button'>
+                <FontAwesomeIcon icon={ faPlusSquare } className='addTask__form--button-icon'/>
+              </button>
+            </form>
           </div>
         </CSSTransition>
       )
@@ -79,6 +120,7 @@ class AddTask extends React.Component {
   }
 
   render(){
+    console.log(this.state)
     return(
       <div className='addTask'>
         <div className='addTask__visible'>
@@ -86,8 +128,8 @@ class AddTask extends React.Component {
           <label htmlFor='formVisible' className='addTask__visible--btn'>&nbsp;</label>
           <input type='checkbox' 
             className='addTask__visible--checkbox' 
-            checked={ this.state.isChecked } 
-            onChange={ this.toggleCheckbox } 
+            checked={ this.state.isFormVisible } 
+            onChange={ this.toggleForm } 
             id='formVisible' 
           />
         </div>

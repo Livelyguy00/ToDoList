@@ -40,9 +40,7 @@
 }
 
 .addTask{
-  border-bottom: 2px solid $primary;
   padding-bottom: 2rem;
-  margin-bottom: 2rem;
 
   &__visible{
     color: $primary;
@@ -93,6 +91,8 @@
 
   &__form{
     margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $primary;
 
     &--labels, &--inputs{
       display: grid;
@@ -100,9 +100,9 @@
     }
 
     &--label{
-      text-align: center;
       color: $black;
       font-size: 1.5rem;
+      padding-left: 1rem;
     }
 
     &--inputs{
@@ -118,6 +118,8 @@
       font-size: 1.5rem;
       border: none;
       width: 100%;
+
+       
     }
 
     &--span{
@@ -130,14 +132,47 @@
         position: absolute;
         height: 3px;
         width: 80%;
+        margin-left: 1rem;
         background-color: $grey;
-        left: 10%;
         top: 80%;
+        left: 0;
+      }
+    }
+
+    &--checkbox{
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      display: inline-block;
+      border: 2px solid $grey;
+      position: relative;
+      transform: translate(1.5rem, 1rem);
+      cursor: pointer;
+
+      &-icon{
+        color: $black;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(2.5);
       }
     }
 
     &--button{
-      
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      &-icon{
+        transform: scale(2);
+        color: $primary;
+        transition: all 0.3s;
+
+        &:hover{
+          transform: scale(2.2);
+          color: $secondary;
+        }
+      }
     }
   }
 }
