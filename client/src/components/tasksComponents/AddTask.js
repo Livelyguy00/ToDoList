@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { NewTask } from '../../actions/index';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamation, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +20,8 @@ class AddTask extends React.Component {
   }
 
   onSubmit = (state) => {
-    console.log(state)
+    const userId = this.props.userId
+    this.props.NewTask(state, userId)
   }
 
   toggleForm = () => {
@@ -29,9 +31,9 @@ class AddTask extends React.Component {
   }
 
   toggleImportant = () => {
-    this.setState({ 
-      isImportant: !this.state.isImportant,
-    });
+    this.setState(prevState => ({ 
+      isImportant: !prevState.isImportant,
+    }))
   }
 
   renderDatepicker = (state) => {
@@ -49,19 +51,17 @@ class AddTask extends React.Component {
     )
   }
 
-  renderImportant(){
+  renderImportant = () => {
     if(this.state.isImportant){
-      return (
-        <FontAwesomeIcon icon={faExclamation} className='addTask__form--checkbox-icon' />
-      )
+      return <FontAwesomeIcon icon={faExclamation} className='addTask__form--checkbox-icon' />;
     }
   }
 
-  renderInput = ({ input, type, label }) => {
+  renderInput = ({ input, type }) => {
     if(type === 'checkbox'){
       return(
         <span className='addTask__form--span'>
-          <label htmlFor='important'>
+          <label htmlFor='important' >
             <span className='addTask__form--checkbox'>
               { this.renderImportant() }
             </span>
@@ -70,10 +70,9 @@ class AddTask extends React.Component {
             id='important'
             type={type}
             checked={ this.state.isImportant } 
-            onChange={ this.toggleImportant() }
-            className='addTask__form--input u-visibility-hidden' 
-            { ...input }
-            autoComplete='off'
+            onChange={ this.toggleImportant }
+            className='addTask__form--input u-visibility-hidden'
+            autoComplete='off' 
           />
         </span>
       )
@@ -103,7 +102,7 @@ class AddTask extends React.Component {
               <span className='addTask__form--label'>Important</span>
               <span className='addTask__form--label'>&nbsp;</span>
             </div>
-            <form className='addTask__form--inputs' onSubmit={ this.props.handleSubmit(this.onSubmit) }>
+            <form className='addTask__form--inputs' onSubmit={ this.props.handleSubmit(this.onSubmit) } action='/addtask' method='POST'>
               <Field type='text' name='name' component={ this.renderInput } />
               <Field type='text' name='description' component={ this.renderInput } />
               <Field name='date' component={ this.renderInput } type='date' />
@@ -145,4 +144,12 @@ const formWrapped = reduxForm({
   form: 'addTaskForm',
 })(AddTask);
 
-export default connect(null,{})(formWrapped);
+const mapStateToProps = (state) => {
+  return{
+    userId: state.auth.user
+  }
+}
+
+export default connect(mapStateToProps,{
+  NewTask
+})(formWrapped);
