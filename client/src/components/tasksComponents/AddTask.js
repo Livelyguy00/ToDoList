@@ -19,15 +19,22 @@ class AddTask extends React.Component {
     };
   }
 
+  componentDidUpdate(prevState){
+    console.log(prevState)
+    if(prevState !== this.state){
+      this.setState(this.state)
+    }
+  }
+
   onSubmit = (state) => {
     const userId = this.props.userId
     this.props.NewTask(state, userId)
   }
 
   toggleForm = () => {
-    this.setState({ 
-      isFormVisible: !this.state.isFormVisible,
-    });
+    this.setState(prevState => ({ 
+      isFormVisible: !prevState.isFormVisible,
+    }));
   }
 
   toggleImportant = () => {
@@ -72,22 +79,21 @@ class AddTask extends React.Component {
             checked={ this.state.isImportant } 
             onChange={ this.toggleImportant }
             className='addTask__form--input u-visibility-hidden'
-            autoComplete='off' 
           />
         </span>
       )
+    }else{
+      return(
+        <span className='addTask__form--span'>
+          <input 
+            type={type} 
+            className='addTask__form--input'
+            { ...input } 
+            autoComplete='off'
+          />
+        </span>
+      );
     }
-
-    return(
-      <span className='addTask__form--span'>
-        <input 
-          type={type} 
-          className='addTask__form--input' 
-          { ...input }
-          autoComplete='off'
-        />
-      </span>
-    );
   }
 
   renderAddForm(){
