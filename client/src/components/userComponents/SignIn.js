@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { signIn } from '../actions/index';
+import { signIn } from '../../actions/index';
 
 class SignIn extends React.Component{
   onSubmit = formValues => {

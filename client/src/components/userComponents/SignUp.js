@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signUp } from '../actions/index';
+import { signUp } from '../../actions/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { Field, reduxForm } from 'redux-form';
