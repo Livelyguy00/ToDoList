@@ -172,5 +172,11 @@
         }
       }
     }
+
+    &--error{
+      display: inline-block;
+      color: orangered;
+      text-align: center;
+    }
   }
 }

@@ -32,7 +32,6 @@
   opacity: 1;
   transform: translateY(0);
   transition: all 500ms;
-  
 }
 
 .fadeForm-exit{
@@ -47,4 +46,30 @@
   transition: all 500ms;
   height: 0;
   display: none;
+}
+
+.fadeModal-enter{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.fadeModal-enter-active{
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  transition: all 500ms;
+}
+
+.fadeModal-exit{
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.fadeModal-exit-active{
+  opacity: 0;
+  width: 0;
+  height: 0;
+  transition: all 500ms;
 }

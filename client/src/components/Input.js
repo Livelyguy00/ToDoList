@@ -25,9 +25,9 @@ class Input extends React.Component{
   render(){
     const {
       input,
+      meta,
       type
     } = this.props
-    console.log(this.props)
     if(type === 'checkbox'){
       return(
         <span className='addTask__form--span'>
@@ -55,6 +55,9 @@ class Input extends React.Component{
             autoComplete='off'
             {...input}
           />
+          {meta.touched &&
+            (meta.error && <span className='addTask__form--error'>{ meta.error }</span>)
+          }
         </span>
       );
     }

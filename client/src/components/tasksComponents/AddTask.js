@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { NewTask } from '../../actions/index';
 import { TransitionGroup } from 'react-transition-group';
 import TaskForm from './TaskForm';
 import DatePicker from 'react-datepicker';
@@ -37,8 +36,6 @@ class AddTask extends React.Component {
   }
 
   render(){
-    console.log('rerender - main')
-    console.log(this.state)
     return(
       <div className='addTask'>
         <div className='addTask__visible'>
@@ -67,6 +64,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps,{
-  NewTask
-})(AddTask);
+export default connect(mapStateToProps,{})(AddTask);

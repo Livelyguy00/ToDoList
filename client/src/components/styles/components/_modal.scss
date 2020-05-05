@@ -1,0 +1,16 @@
+.modal{
+  position: fixed;
+  top:0;
+  left:0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  background-color: rgba($tertiary, .7);
+}
+
+.warning{
+  background-color: rgba(orangered, .7);
+  padding: 2rem;
+  font-size: 2rem;
+  border-radius: 3px;
+}

@@ -1,9 +1,11 @@
 import React from 'react';
 import Input from '../Input';
+import { NewTask } from '../../actions/index';
 import { Field, reduxForm } from 'redux-form';
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { connect } from 'react-redux';
 
 class TaskForm extends React.Component{
   onSubmit = (state) => {
@@ -12,7 +14,6 @@ class TaskForm extends React.Component{
   }
 
   render(){
-    console.log(this.props)
     if(this.props.visible){
       return(
         <CSSTransition timeout={1000} classNames='fadeForm'>
@@ -41,6 +42,26 @@ class TaskForm extends React.Component{
   }
 }
 
-export default reduxForm({
+const validate = values => {
+  const errors = {}
+  if(!values.name){
+    errors.name = 'Required'
+  }
+
+  return errors
+}
+
+const mapStateToProps = state => {
+  return {
+    userId: state.isSignedIn
+  }
+}
+
+const formWrapped = reduxForm({
   form: 'addTaskForm',
+  validate
 })(TaskForm)
+
+export default connect(mapStateToProps,{
+  NewTask
+})(formWrapped)
