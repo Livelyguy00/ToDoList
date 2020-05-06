@@ -23,11 +23,13 @@ class Input extends React.Component{
   }
 
   render(){
+    console.log(this.state)
     const {
       input,
       meta,
       type
     } = this.props
+    console.log(this.props)
     if(type === 'checkbox'){
       return(
         <span className='addTask__form--span'>
@@ -38,9 +40,10 @@ class Input extends React.Component{
           </label>
           <input 
             id='important'
-            {...input.onChange = this.toggleImportant }
-            {...input.value = this.state.isImportant}
             {...input}
+            {...input.onChange = this.toggleImportant }
+            {...input.checked = this.state.isImportant }
+            {...input.value = this.state.isImportant }
             type={type}
             className='addTask__form--input u-visibility-hidden'
           />

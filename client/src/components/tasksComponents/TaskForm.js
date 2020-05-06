@@ -10,7 +10,8 @@ import { connect } from 'react-redux';
 class TaskForm extends React.Component{
   onSubmit = (state) => {
     const userId = this.props.userId
-    this.props.NewTask(state, userId)
+    console.log({state, userId})
+    //this.props.NewTask(state, userId)
   }
 
   render(){
@@ -53,7 +54,7 @@ const validate = values => {
 
 const mapStateToProps = state => {
   return {
-    userId: state.isSignedIn
+    userId: state.auth.userId
   }
 }
 
