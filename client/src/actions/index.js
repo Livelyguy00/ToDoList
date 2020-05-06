@@ -53,9 +53,8 @@ export const SignOut = () => async dispatch => {
 }
 
 export const NewTask = (task, user) => async dispatch => {
-  console.log({task, user})
-  //const response = await api.post('/addtask', {task, user})
-  //console.log(response)
+  const response = await api.post('/addtask', {task, user})
+  console.log(response)
 
-  //history.push('/tasks')
+  history.push('/tasks')
 }

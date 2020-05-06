@@ -3,48 +3,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 
 class Input extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      isImportant: false
-    }
-  }
-
-  toggleImportant = () => {
-    this.setState(state => ({ 
-      isImportant: !state.isImportant,
-    }))
-  }
-
-  renderImportant = () => {
-    if(this.state.isImportant){
+  renderImportant = (checked) => {
+    if(checked){
       return <FontAwesomeIcon icon={faExclamation} className='addTask__form--checkbox-icon' />;
     }
   }
 
   render(){
-    console.log(this.state)
     const {
       input,
       meta,
       type
     } = this.props
-    console.log(this.props)
     if(type === 'checkbox'){
       return(
         <span className='addTask__form--span'>
           <label htmlFor='important' >
             <span className='addTask__form--checkbox'>
-              { this.renderImportant() }
+              { this.renderImportant(input.value) }
             </span>
           </label>
           <input 
             id='important'
-            {...input}
-            {...input.onChange = this.toggleImportant }
-            {...input.checked = this.state.isImportant }
-            {...input.value = this.state.isImportant }
             type={type}
+            {...input}
             className='addTask__form--input u-visibility-hidden'
           />
         </span>

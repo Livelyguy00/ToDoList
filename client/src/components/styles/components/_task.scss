@@ -1,0 +1,64 @@
+.task{
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid $tertiary;
+  border-radius: 3px;
+  font-size: 2rem;
+  color: $black;
+  display: grid;
+  grid-template-columns: 10% 40% 35% 5% 5% 5%;
+  text-align: center;
+
+  &__check{
+    display: none;
+
+    &--label{
+      display: flex;
+      align-items: center;
+    }
+    
+    &--custom{
+      display: inline-block;
+      height: 2.5rem;
+      width: 2.5rem;
+      background-color: transparent;
+      border: 1px solid $tertiary;
+      position: relative;
+      cursor: pointer;
+    }
+
+    &--icon{
+      color: $tertiary;
+      opacity: 0;
+      transform: scale(0.9) translateY(-.5rem);
+      transition: all .3s;
+    }
+
+    &:checked + &--label &--icon{
+      color: $primary;
+      opacity: 1;
+      transform: scale(0.9) translateY(-.5rem);
+    }
+  }
+
+  &__name{
+
+  }
+
+  &__data{
+
+  }
+
+  &__iconBox{
+
+    &--icon{
+      transition: all .3s;
+      cursor: pointer;
+
+      &:hover{
+        color: $primary;
+        transform: scale(1.1);
+      }
+    }
+  }
+}

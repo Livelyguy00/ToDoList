@@ -2,43 +2,6 @@
   padding: 2rem;
 }
 
-.task{
-  padding: 1.5rem;
-  border: 1px solid $grey;
-  font-size: 2rem;
-  color: $black;
-
-  &__check{
-    visibility: hidden;
-    
-    &--custom{
-      display: inline-block;
-      height: 2.5rem;
-      width: 2.5rem;
-      background-color: transparent;
-      border: 1px solid $tertiary;
-      position: relative;
-    }
-
-    &--icon{
-      color: $primary;
-      transform: scale(0.9) translateX(.15rem) translateY(-.4rem);
-    }
-  }
-
-  &__name{
-
-  }
-
-  &__data{
-
-  }
-
-  &__icon{
-
-  }
-}
-
 .addTask{
   padding-bottom: 2rem;
 

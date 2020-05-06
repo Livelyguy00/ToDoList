@@ -9,8 +9,7 @@ class AddTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFormVisible: false,
-      isImportant: false
+      isFormVisible: false
     };
   }
 
@@ -49,7 +48,7 @@ class AddTask extends React.Component {
           />
         </div>
         <TransitionGroup>
-          <TaskForm visible={ this.state.isFormVisible }/>
+          <TaskForm visible={ this.state.isFormVisible } onSubmit={ this.toggleForm }/>
         </TransitionGroup>
       </div>
     )
