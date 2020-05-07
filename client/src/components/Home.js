@@ -8,7 +8,7 @@ class Home extends React.Component {
       return (
         <>
           <h2 className='heading-secondary u-margin-top-medium u-text-white'>Menage your tasks now</h2>
-          <Link to='/addtask' className='btn btn--primary'>Tasks</Link>
+          <Link to='/tasks' className='btn btn--primary'>Tasks</Link>
         </>
       )
     }

@@ -13,8 +13,6 @@ newTask = async (req, res) => {
     user: req.body.user
   })
 
-  console.log(body)
-
   const newTask = new Task(body)
   newTask
     .save()
@@ -28,7 +26,19 @@ newTask = async (req, res) => {
 }
 
 fetchTasks = async (req, res) => {
-  
+  Task.find({
+    user: req.query.user
+  }, (err, tasks) => {
+    if(err){
+      console.log(err)
+    }
+    if(tasks){
+      res.status(200).json({
+        success: true,
+        data: tasks
+      })
+    }
+  })
 }
 
 module.exports = {

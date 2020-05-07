@@ -6,10 +6,10 @@ export default ( state = {}, action ) => {
       return { data: action.payload }
 
     case SIGN_IN:
-      return { isSignedIn: true, user: action.payload }
+      return { ...state, isSignedIn: true, user: action.payload }
 
     case SIGN_OUT:
-      return { isSignedIn: false }
+      return { ...state,  isSignedIn: false }
 
     default:
       return state;
