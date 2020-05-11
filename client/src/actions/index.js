@@ -24,7 +24,7 @@ export const signIn = ({ email, password }) => async dispatch => {
   const token = response.data.token;
   localStorage.setItem('token', token);
 
-  await dispatch({
+  dispatch({
     type: SIGN_IN,
     payload: response.data.data
   })
@@ -36,7 +36,7 @@ export const fetchUser = () => async dispatch => {
   if(token){
     const response = await api.get('/user', {headers: {'Authorization':'Bearer ' + token}})
 
-    await dispatch({
+    dispatch({
       type: SIGN_IN,
       payload: response.data.authData.userId
     })
@@ -46,21 +46,20 @@ export const fetchUser = () => async dispatch => {
 export const SignOut = () => async dispatch => {
   localStorage.removeItem('token')
 
-  await dispatch({
+  dispatch({
     type: SIGN_OUT
   })
   history.push('/')
 }
 
-export const NewTask = (task, user) => async dispatch => {
-  const response = await api.post('/addtask', {task, user})
+export const NewTask = async (task, user) => {
+  await api.post('/addtask', {task, user})
 
   history.push('/tasks')
 }
 
 export const fetchTasks = (userId) => async dispatch => {
   const response = await api.get(`/fetchtasks?user=${userId}`)
-  console.log(response.data.data)
   dispatch({
     type: FETCH_TASKS,
     payload: response.data.data

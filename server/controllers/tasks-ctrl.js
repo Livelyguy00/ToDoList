@@ -38,7 +38,7 @@ fetchTasks = async (req, res) => {
         data: tasks
       })
     }
-  })
+  }).sort({ important: -1 })
 }
 
 module.exports = {

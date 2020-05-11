@@ -9,12 +9,19 @@ import Modal from '../Modal';
 import AddTask from './AddTask';
 
 class Tasks extends React.Component {
-  componentDidUpdate(){
+  componentDidMount(){
     console.log(this.props.userId)
-    this.props.fetchTasks(this.props.userId)
   }
 
-  render(){
+  componentDidUpdate(prevProps){
+    console.log(this.props.userId)
+    if(this.props.tasks !== prevProps.tasks){
+      this.props.fetchTasks(this.props.userId)
+    }
+    console.log(this.props.tasks)
+  }
+
+  renderWarning(){
     if(!this.props.isSignedIn){
       return(
         <TransitionGroup>
@@ -26,9 +33,12 @@ class Tasks extends React.Component {
         </TransitionGroup>
       )
     }
+  }
 
+  render(){
     return(
       <div className='tasks'>
+        { this.renderWarning() }
         <AddTask />
         <Task />
       </div>
@@ -39,7 +49,8 @@ class Tasks extends React.Component {
 const mapStateToProps = (state) => {
   return {
     isSignedIn: state.auth.isSignedIn,
-    userId: state.auth.user
+    userId: state.auth.user,
+    tasks: state.tasks.tasks
   }
 }
 
