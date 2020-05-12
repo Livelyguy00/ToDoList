@@ -13,14 +13,6 @@ class Tasks extends React.Component {
     console.log(this.props.userId)
   }
 
-  componentDidUpdate(prevProps){
-    console.log(this.props.userId)
-    if(this.props.tasks !== prevProps.tasks){
-      this.props.fetchTasks(this.props.userId)
-    }
-    console.log(this.props.tasks)
-  }
-
   renderWarning(){
     if(!this.props.isSignedIn){
       return(
