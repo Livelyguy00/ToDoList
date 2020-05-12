@@ -155,6 +155,9 @@ body {
 .btn--primary {
   background-color: #284b63; }
 
+.btn--warning {
+  background-color: rgba(255, 69, 0, 0.7); }
+
 .form {
   display: flex;
   flex-direction: column; }
@@ -233,6 +236,13 @@ body {
   padding: 2rem;
   font-size: 2rem;
   border-radius: 3px; }
+  .warning__dismiss {
+    font-size: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #d9d9d9; }
+
+.card {
+  padding: 1.5rem; }
 
 .task {
   padding: 1rem;
@@ -244,6 +254,8 @@ body {
   display: grid;
   grid-template-columns: 10% 40% 35% 5% 5% 5%;
   text-align: center; }
+  .task:not(:last-child) {
+    margin-bottom: 1rem; }
   .task__check {
     display: none; }
     .task__check--label {
@@ -266,12 +278,14 @@ body {
       color: #284b63;
       opacity: 1;
       transform: scale(0.9) translateY(-0.5rem); }
-  .task__iconBox--icon {
-    transition: all .3s;
-    cursor: pointer; }
-    .task__iconBox--icon:hover {
-      color: #284b63;
-      transform: scale(1.1); }
+  .task__iconBox {
+    color: #000; }
+    .task__iconBox--icon {
+      transition: all .3s;
+      cursor: pointer; }
+      .task__iconBox--icon:hover {
+        color: #284b63;
+        transform: scale(1.1); }
 
 .header {
   background-color: #284b63;
@@ -337,7 +351,11 @@ body {
   background-size: cover; }
 
 .tasks {
-  padding: 2rem; }
+  padding: 2rem;
+  height: calc(100% - 62px);
+  overflow: scroll; }
+  .tasks::-webkit-scrollbar {
+    display: none; }
 
 .addTask {
   padding-bottom: 2rem; }

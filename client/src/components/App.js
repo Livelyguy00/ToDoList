@@ -4,6 +4,7 @@ import SignUp from './userComponents/SignUp';
 import SignIn from './userComponents/SignIn';
 import Home from './Home';
 import Tasks from './tasksComponents/Tasks';
+import DeleteTask from './tasksComponents/DeleteTask';
 import history from '../history';
 import { Router, Switch, Route } from 'react-router-dom';
 
@@ -26,6 +27,7 @@ class App extends React.Component {
               <Route path='/signin' exact component = { SignIn } />
               <Route path='/' exact component = { Home } />
               <Route path='/tasks' exact component = { Tasks } />
+              <Route path='/tasks/delete:id' exact component = { DeleteTask } />
             </Switch>
           </main>
         </Router>

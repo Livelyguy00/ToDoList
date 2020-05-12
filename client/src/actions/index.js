@@ -52,7 +52,7 @@ export const SignOut = () => async dispatch => {
   history.push('/')
 }
 
-export const NewTask = async (task, user) => {
+export const NewTask = (task, user) => async dispatch => {
   await api.post('/addtask', {task, user})
 
   history.push('/tasks')

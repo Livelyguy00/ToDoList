@@ -1,5 +1,11 @@
 .tasks{
   padding: 2rem;
+  height: calc(100% - 62px);
+  overflow: scroll;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
 }
 
 .addTask{

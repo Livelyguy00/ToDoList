@@ -9,8 +9,10 @@ import Modal from '../Modal';
 import AddTask from './AddTask';
 
 class Tasks extends React.Component {
-  componentDidMount(){
-    console.log(this.props.userId)
+  componentDidUpdate(prevProps) {
+    if (this.props.userId !== undefined && this.props.userId !== prevProps.userId) {
+      this.props.fetchTasks(this.props.userId)
+    }
   }
 
   renderWarning(){
@@ -27,12 +29,21 @@ class Tasks extends React.Component {
     }
   }
 
+  renderTasks(){
+    return this.props.tasks.map(task => {
+      return(
+        <Task task={task} key={task._id}/>
+      )
+    })
+  }
+
   render(){
     return(
       <div className='tasks'>
         { this.renderWarning() }
         <AddTask />
         <Task />
+        {this.renderTasks()}
       </div>
     )
   }

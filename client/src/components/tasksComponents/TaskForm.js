@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 class TaskForm extends React.Component{
   onSubmit = (state, dispatch) => {
     const userId = this.props.userId
-    console.log({state, userId})
     this.props.NewTask(state, userId)
     this.props.onSubmit()
     dispatch(reset('addTaskForm'));

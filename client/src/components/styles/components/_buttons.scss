@@ -22,4 +22,8 @@
   &--primary{
     background-color: $primary;
   }
+
+  &--warning{
+    background-color: rgba(orangered, .7);
+  }
 }
