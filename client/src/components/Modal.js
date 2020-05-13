@@ -17,18 +17,26 @@ const Modal = props => {
   }
 
   const cardRender = () => {
-    console.log(props)
-    return(
-      <CSSTransition timeout={500} classNames='fadeModal'>
-        <div onClick={ props.onDismiss } className='modal'>
-          <div onClick={(e) => e.stopPropagation()} className='card u-absolute-centered'>
-            <p className='card__text'>{ props.text }</p>
-            <div className='card__content'></div>
-            { props.actions }
+    if(props.task !== undefined){
+      console.log(props.task)
+      return(
+        <CSSTransition timeout={500} classNames='fadeModal'>
+          <div onClick={ props.onDismiss } className='modal'>
+            <div onClick={(e) => e.stopPropagation()} className='card u-absolute-centered'>
+              <p className='card__text'>{ props.text }</p>
+              <div className='card__content'>
+                <p className='card__content--text'>{ props.task.name }</p>
+                <p className='card__content--text'>{ props.task.description }</p>
+                <p className='card__content--text'>{ props.task.date }</p>
+              </div>
+              <div className='card__actions'>
+                { props.actions }
+              </div>
+            </div>
           </div>
-        </div>
-      </CSSTransition>
-    )
+        </CSSTransition>
+      )
+    }
   }
 
   if(props.type === 'warning'){

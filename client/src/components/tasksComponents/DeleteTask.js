@@ -7,7 +7,8 @@ import { deleteTask, fetchTask } from '../../actions/index';
 
 class DeleteTask extends React.Component {
   componentDidMount(){
-    //this.props.fetchTask
+    const taskId = this.props.match.params.id
+    this.props.fetchTask(taskId)
   }
 
   onDeleteClick(){
@@ -16,10 +17,10 @@ class DeleteTask extends React.Component {
 
   renderActions(){
     return(
-      <div className='actions'>
-        <button className='btn btn--primary'/>
-        <button className='btn btn--warning'/>
-      </div>
+      <>
+        <Link to='/tasks' className='btn btn--primary'>Cancel</Link>
+        <button className='btn btn--warning'>Delete</button>
+      </>
     )
   }
 
@@ -36,4 +37,13 @@ class DeleteTask extends React.Component {
   }
 }
 
-export default DeleteTask
+const mapStateToProps = (state) => {
+  return {
+    task: state.tasks.task
+  }
+}
+
+export default connect(mapStateToProps,{
+  fetchTask,
+  deleteTask
+})(DeleteTask)

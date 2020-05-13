@@ -41,7 +41,24 @@ fetchTasks = async (req, res) => {
   }).sort({ important: -1 })
 }
 
+fetchTask = async(req, res) => {
+  Task.find({
+    _id: req.query.task
+  }, (err, task) => {
+    if(err){
+      console.log(err)
+    }
+    if(task){
+      res.status(200).json({
+        success: true,
+        data: task
+      })
+    }
+  })
+}
+
 module.exports = {
   newTask,
-  fetchTasks
+  fetchTasks,
+  fetchTask
 }

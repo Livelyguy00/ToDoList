@@ -27,7 +27,7 @@ class App extends React.Component {
               <Route path='/signin' exact component = { SignIn } />
               <Route path='/' exact component = { Home } />
               <Route path='/tasks' exact component = { Tasks } />
-              <Route path='/tasks/delete:id' exact component = { DeleteTask } />
+              <Route path='/tasks/delete/:id' exact component = { DeleteTask } />
             </Switch>
           </main>
         </Router>

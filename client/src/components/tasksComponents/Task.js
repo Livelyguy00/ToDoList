@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 class Task extends React.Component {
   render(){
     if(this.props.task !== undefined){
-      console.log(this.props.task)
       return(
         <div className='task'>
           <input className='task__check' 
@@ -27,7 +26,7 @@ class Task extends React.Component {
           <span className='task__iconBox'>
             <FontAwesomeIcon icon={ faShareAlt } className='task__iconBox--icon' />
           </span>
-          <Link to={`/tasks/delete${this.props.task._id}`} className='task__iconBox'>
+          <Link to={`/tasks/delete/${this.props.task._id}`} className='task__iconBox'>
             <FontAwesomeIcon icon={ faTrashAlt } className='task__iconBox--icon' />
           </Link>
         </div>

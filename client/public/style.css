@@ -138,11 +138,11 @@ body {
 .btn, .btn:link, .btn:visited {
   text-decoration: none;
   border-radius: 50px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 200;
   color: white;
   border: none;
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -242,7 +242,22 @@ body {
     border-bottom: 1px solid #d9d9d9; }
 
 .card {
-  padding: 1.5rem; }
+  padding: 1.5rem;
+  background-color: rgba(217, 217, 217, 0.7);
+  border-radius: 3px; }
+  .card__text {
+    font-size: 2rem; }
+  .card__content {
+    display: flex;
+    margin: 2rem 0; }
+    .card__content--text {
+      font-size: 1.2rem;
+      padding: 0 1rem; }
+      .card__content--text:not(:last-child) {
+        border-right: 1px solid #d9d9d9; }
+  .card__actions {
+    display: flex;
+    justify-content: space-around; }
 
 .task {
   padding: 1rem;

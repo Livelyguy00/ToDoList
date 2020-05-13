@@ -23,4 +23,28 @@
 
 .card{
   padding: 1.5rem;
+  background-color: rgba($grey, .7);
+  border-radius: 3px;
+
+  &__text{
+    font-size: 2rem;
+  }
+
+  &__content{
+    display: flex;
+    margin: 2rem 0;
+    
+    &--text{
+      font-size: 1.2rem;
+      padding: 0 1rem;
+      &:not(:last-child){
+        border-right: 1px solid $grey;
+      }
+    }
+  }
+
+  &__actions{
+    display: flex;
+    justify-content: space-around;
+  }
 }
