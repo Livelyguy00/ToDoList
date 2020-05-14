@@ -1,5 +1,5 @@
 import api from '../apis/index';
-import { SIGN_IN, SIGN_UP, SIGN_OUT, FETCH_TASKS, FETCH_TASK } from './types';
+import { SIGN_IN, SIGN_UP, SIGN_OUT, FETCH_TASKS, FETCH_TASK, DELETE_TASK } from './types';
 import history from '../history';
 
 export const signUp = ({email, password, password_2}) => async dispatch => {
@@ -23,10 +23,10 @@ export const signIn = ({ email, password }) => async dispatch => {
    
   const token = response.data.token;
   localStorage.setItem('token', token);
-
+  
   dispatch({
     type: SIGN_IN,
-    payload: response.data.data
+    payload: response.data
   })
   history.push('/tasks')
 }
@@ -76,5 +76,10 @@ export const fetchTask = (taskId) => async dispatch => {
 }
 
 export const deleteTask = (taskId) => async dispatch => {
-  
+  const response = await api.get(`/delete?task=${taskId}`)
+  const message = response.data.message
+  dispatch({
+    type: DELETE_TASK,
+    payload: message
+  })
 }

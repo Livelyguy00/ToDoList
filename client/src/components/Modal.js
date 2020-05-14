@@ -9,7 +9,7 @@ const Modal = props => {
         <div onClick={ props.onDismiss } className='modal'>
           <div onClick={(e) => e.stopPropagation()} className='warning u-absolute-centered'>
             { props.text }
-            <p className='warning__dismiss'>Click anywhere to sign in</p>
+            <p className='warning__dismiss'>{props.message}</p>
           </div>
         </div>
       </CSSTransition>
@@ -18,7 +18,6 @@ const Modal = props => {
 
   const cardRender = () => {
     if(props.task !== undefined){
-      console.log(props.task)
       return(
         <CSSTransition timeout={500} classNames='fadeModal'>
           <div onClick={ props.onDismiss } className='modal'>

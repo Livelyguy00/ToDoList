@@ -9,10 +9,8 @@ import Modal from '../Modal';
 import AddTask from './AddTask';
 
 class Tasks extends React.Component {
-  componentDidUpdate(prevProps) {
-    if (this.props.userId !== undefined && this.props.userId !== prevProps.userId) {
-      this.props.fetchTasks(this.props.userId)
-    }
+  componentDidMount(){
+    this.props.fetchTasks(this.props.userId)
   }
 
   renderWarning(){
@@ -23,6 +21,7 @@ class Tasks extends React.Component {
             type='warning'
             text='To visit this page you must be Signed In'
             onDismiss={ () => history.push('/signin') }
+            message='Click anywhere to sign in'
           />
         </TransitionGroup>
       )

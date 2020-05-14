@@ -57,8 +57,23 @@ fetchTask = async(req, res) => {
   })
 }
 
+deleteTask = async(req, res) => {
+  Task.deleteOne({_id: req.query.task}, (err, deleted) => {
+    if(err){
+      console.log(err)
+    }
+    if(deleted){
+      res.status(200).json({
+        success: true,
+        message: 'Task has been deleted'
+      })
+    }
+  })
+}
+
 module.exports = {
   newTask,
   fetchTasks,
-  fetchTask
+  fetchTask,
+  deleteTask
 }
