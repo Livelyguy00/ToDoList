@@ -27,7 +27,8 @@ newTask = async (req, res) => {
 
 fetchTasks = async (req, res) => {
   Task.find({
-    user: req.query.user
+    user: req.query.user,
+    succeed: false
   }, (err, tasks) => {
     if(err){
       console.log(err)

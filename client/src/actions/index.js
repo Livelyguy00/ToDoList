@@ -35,7 +35,6 @@ export const fetchUser = () => async dispatch => {
   const token = localStorage.token
   if(token){
     const response = await api.get('/user', {headers: {'Authorization':'Bearer ' + token}})
-
     dispatch({
       type: SIGN_IN,
       payload: response.data.authData.userId

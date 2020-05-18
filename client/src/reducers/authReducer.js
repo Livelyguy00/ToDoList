@@ -6,7 +6,7 @@ export default ( state = {}, action ) => {
       return { data: action.payload }
 
     case SIGN_IN:
-      return { ...state, isSignedIn: true, user: action.payload.userId }
+      return { ...state, isSignedIn: true, user: action.payload }
 
     case SIGN_OUT:
       return { ...state,  isSignedIn: false }

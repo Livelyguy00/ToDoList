@@ -6,7 +6,7 @@
   font-size: 2rem;
   color: $black;
   display: grid;
-  grid-template-columns: 10% 40% 35% 5% 5% 5%;
+  grid-template-columns: 5% 5% 40% 35% 5% 5% 5%;
   text-align: center;
   &:not(:last-child){
     margin-bottom: 1rem;
@@ -63,6 +63,10 @@
         color: $primary;
         transform: scale(1.1);
       }
+    }
+
+    &--important{
+      color: orangered;
     }
   }
 }

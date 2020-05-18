@@ -268,7 +268,7 @@ body {
   font-size: 2rem;
   color: #000;
   display: grid;
-  grid-template-columns: 10% 40% 35% 5% 5% 5%;
+  grid-template-columns: 5% 5% 40% 35% 5% 5% 5%;
   text-align: center; }
   .task:not(:last-child) {
     margin-bottom: 1rem; }
@@ -302,6 +302,8 @@ body {
       .task__iconBox--icon:hover {
         color: #284b63;
         transform: scale(1.1); }
+    .task__iconBox--important {
+      color: orangered; }
 
 .header {
   background-color: #284b63;

@@ -14,6 +14,7 @@ class DeleteTask extends React.Component {
   onDeleteClick = () => {
     const taskId = this.props.task._id
     this.props.deleteTask(taskId)
+    history.push('/tasks')
   }
 
   renderActions(){
