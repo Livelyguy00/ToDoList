@@ -2,15 +2,14 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faPencilAlt, faShareAlt, faCheck, faExclamation } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 class Task extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      taskChecked: false
-    }
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     taskChecked: false
+  //   }
+  // }
 
   ifImportant(){
     if(this.props.task.important){
@@ -27,19 +26,12 @@ class Task extends React.Component {
     )
   }
 
-  onTaskCheck = () => {
-    this.setState(state => ({
-      taskChecked: !state.taskChecked
-    }))
-  }
-
   render(){
     if(this.props.task !== undefined){
       return(
         <div className='task'>
           <input className='task__check' 
-            onChange={this.onTaskCheck}
-            checked={this.state.taskChecked}
+            onChange={e => this.props.onCheck(this.props.task._id)}
             type='checkbox' 
             id={this.props.task._id} 
             name='succeed' 

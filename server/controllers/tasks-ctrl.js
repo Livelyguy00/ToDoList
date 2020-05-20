@@ -72,9 +72,19 @@ deleteTask = async(req, res) => {
   })
 }
 
+checkTask = async(req, res) => {
+  const id = req.query.task
+  Task.updateOne({_id: id}, { succeed: true }, (err, res) => {
+    if(err){
+      console.log(err)
+    }
+  })
+}
+
 module.exports = {
   newTask,
   fetchTasks,
   fetchTask,
-  deleteTask
+  deleteTask,
+  checkTask
 }

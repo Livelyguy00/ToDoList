@@ -22,10 +22,10 @@
 }
 
 //react-transition-group classes
+//--ADDTASK FORM--
 .fadeForm-enter{
   opacity: 0;
   transform: translateY(-3rem);
-  
 }
 
 .fadeForm-enter-active{
@@ -37,17 +37,15 @@
 .fadeForm-exit{
   opacity: 1;
   transform: translateY(0);
-  height: 100%;
 }
 
 .fadeForm-exit-active{
   opacity: 0;
   transform: translateY(-3rem);
   transition: all 500ms;
-  height: 0;
-  display: none;
 }
 
+//--MODAL--
 .fadeModal-enter{
   opacity: 0;
   width: 0;
@@ -73,3 +71,10 @@
   height: 0;
   transition: all 500ms;
 }
+
+//--TASKS--
+.task-animation--enter{ opacity: 0; transform: translateX(-4rem); }
+.task-animation--enter-active{ opacity: 1; transform: translateX(0); transition: all .5s; }
+
+.task-animation--exit{ opacity: 1; transform: translateX(0); }
+.task-animation--exit-active{ opacity: 0; transform: translateX(-4rem); transition: all .5s cubic-bezier(0.64, 0, 0.78, 0); }

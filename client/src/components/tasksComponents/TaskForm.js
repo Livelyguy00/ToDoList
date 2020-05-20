@@ -2,7 +2,6 @@ import React from 'react';
 import Input from '../Input';
 import { NewTask } from '../../actions/index';
 import { Field, reduxForm, reset } from 'redux-form';
-import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
@@ -16,31 +15,26 @@ class TaskForm extends React.Component{
   }
 
   render(){
-    if(this.props.visible){
-      return(
-        <CSSTransition timeout={1000} classNames='fadeForm'>
-          <div className='addTask__form'>
-            <div className='addTask__form--labels'>
-              <span className='addTask__form--label'>Name</span>
-              <span className='addTask__form--label'>Description</span>
-              <span className='addTask__form--label'>Date</span>
-              <span className='addTask__form--label'>Important</span>
-              <span className='addTask__form--label'>&nbsp;</span>
-            </div>
-            <form className='addTask__form--inputs' onSubmit={ this.props.handleSubmit(this.onSubmit) } action='/addtask' method='POST'>
-              <Field type='text' name='name' component={ Input } />
-              <Field type='text' name='description' component={ Input } />
-              <Field type='date' name='date' component={ Input }  />
-              <Field type='checkbox' name='important' component={ Input }/>
-              <button type='submit' className='addTask__form--button'>
-                <FontAwesomeIcon icon={ faPlusSquare } className='addTask__form--button-icon'/>
-              </button>
-            </form>
-          </div>
-        </CSSTransition>
-      )
-    }
-    return null;
+    return(
+      <div className='addTask__form'>
+        <div className='addTask__form--labels'>
+          <span className='addTask__form--label'>Name</span>
+          <span className='addTask__form--label'>Description</span>
+          <span className='addTask__form--label'>Date</span>
+          <span className='addTask__form--label'>Important</span>
+          <span className='addTask__form--label'>&nbsp;</span>
+        </div>
+        <form className='addTask__form--inputs' onSubmit={ this.props.handleSubmit(this.onSubmit) } action='/addtask' method='POST'>
+          <Field type='text' name='name' component={ Input } />
+          <Field type='text' name='description' component={ Input } />
+          <Field type='date' name='date' component={ Input }  />
+          <Field type='checkbox' name='important' component={ Input }/>
+          <button type='submit' className='addTask__form--button'>
+            <FontAwesomeIcon icon={ faPlusSquare } className='addTask__form--button-icon'/>
+          </button>
+        </form>
+      </div>
+    )
   }
 }
 

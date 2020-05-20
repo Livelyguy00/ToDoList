@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { TransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import TaskForm from './TaskForm';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 
 class AddTask extends React.Component {
@@ -19,21 +18,6 @@ class AddTask extends React.Component {
     }));
   }
 
-  renderDatepicker = (state) => {
-    return(
-      <DatePicker
-        className="datepicker__input" 
-        selected={ new Date() }
-        onChange={ date => state.input.value = date }
-        showTimeSelect
-        timeFormat="HH:mm"
-        timeIntervals={15}
-        timeCaption="time"
-        dateFormat="MMMM d, yyyy h:mm aa"
-      />
-    )
-  }
-
   render(){
     return(
       <div className='addTask'>
@@ -47,9 +31,14 @@ class AddTask extends React.Component {
             id='formVisible' 
           />
         </div>
-        <TransitionGroup>
-          <TaskForm visible={ this.state.isFormVisible } onSubmit={ this.toggleForm }/>
-        </TransitionGroup>
+        <CSSTransition 
+          in={this.state.isFormVisible} 
+          timeout={500} 
+          classNames='fadeForm' 
+          unmountOnExit
+        >
+          <TaskForm onSubmit={ this.toggleForm }/>
+        </CSSTransition>
       </div>
     )
   }

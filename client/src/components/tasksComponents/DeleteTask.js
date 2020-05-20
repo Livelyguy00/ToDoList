@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from '../Modal';
 import history from '../../history';
 import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { deleteTask, fetchTask } from '../../actions/index';
 
@@ -30,23 +31,27 @@ class DeleteTask extends React.Component {
     if(this.props.task){
       if(this.props.userId !== this.props.task.user){
         return(
-          <Modal 
-            type='warning'
-            onDismiss = {() => history.push('/tasks')}
-            text='This is not your task!'
-            message='Click to see your tasks'
-          />
+          <CSSTransition timeout={500} classNames='fadeModal'>
+            <Modal 
+              type='warning'
+              onDismiss = {() => history.push('/tasks')}
+              text='This is not your task!'
+              message='Click to see your tasks'
+            />
+          </CSSTransition>
         )
       }
 
       return(
-        <Modal 
-          type='card'
-          onDismiss = {() => history.push('/tasks')}
-          text='Are you sure you want delete this task?'
-          actions={this.renderActions()}
-          task={this.props.task}
-        />
+        <CSSTransition timeout={500} classNames='fadeModal'>
+          <Modal 
+            type='card'
+            onDismiss = {() => history.push('/tasks')}
+            text='Are you sure you want delete this task?'
+            actions={this.renderActions()}
+            task={this.props.task}
+          />
+        </CSSTransition>
       )
     }
     return null;

@@ -82,3 +82,7 @@ export const deleteTask = (taskId) => async dispatch => {
     payload: message
   })
 }
+
+export const checkTask = (taskId) => async dispatch => {
+  await api.get(`/edit?task=${taskId}`)
+}

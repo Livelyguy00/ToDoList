@@ -8,5 +8,6 @@ router.post('/addtask', TasksCtrl.newTask)
 router.get('/fetchtasks', TasksCtrl.fetchTasks)
 router.get('/fetchtask', TasksCtrl.fetchTask)
 router.get('/delete', TasksCtrl.deleteTask)
+router.get('/edit', TasksCtrl.checkTask)
 
 module.exports = router
