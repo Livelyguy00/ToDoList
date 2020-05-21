@@ -16,6 +16,10 @@ class Tasks extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.props.fetchTasks(this.props.userId)
+  }
+
   componentDidUpdate(prevProps){
     if(this.props.userId !== prevProps.userId){
       this.props.fetchTasks(this.props.userId)

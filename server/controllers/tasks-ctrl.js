@@ -19,7 +19,8 @@ newTask = async (req, res) => {
     .then(() => {
       return res.status(200).json({
         success: true,
-        message: 'Task added'
+        message: 'Task added',
+        task: newTask
       })
     })
     .catch(err => console.log(err))
