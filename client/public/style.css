@@ -157,7 +157,7 @@ body {
   font-weight: 200;
   color: white;
   border: none;
-  padding: 1rem 2rem;
+  padding: 1.2rem 3rem;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -347,11 +347,10 @@ body {
 .signup {
   width: 100%;
   height: calc(100% - 70px);
-  display: grid;
-  grid-template-columns: 2; }
+  display: grid; }
   .signup__side {
     grid-area: 1;
-    padding: 2rem 4rem;
+    padding: 1rem 4rem;
     height: 100%;
     display: flex;
     flex-direction: column;

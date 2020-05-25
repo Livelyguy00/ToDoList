@@ -68,6 +68,11 @@ export const fetchTasks = (userId) => async dispatch => {
   })
 }
 
+export const fetchCheckedTasks = (userId) => async dispatch => {
+  const response = await api.get(`/fetchchecked?user=${userId}`)
+  console.log(response.data)
+}
+
 export const fetchTask = (taskId) => async dispatch => {
   const response = await api.get(`/fetchtask?task=${taskId}`)
   const data = response.data.data[0]

@@ -43,6 +43,20 @@ fetchTasks = async (req, res) => {
   }).sort({ important: -1 })
 }
 
+fetchChecked = async(req, res) => {
+  Task.find({
+    user: req.query.user,
+    succeed: true
+  }, (err, done_tasks) => {
+    if(err){
+      console.log(err)
+    }
+    if(done_tasks){
+      console.log(done_tasks)
+    }
+  })
+}
+
 fetchTask = async(req, res) => {
   Task.find({
     _id: req.query.task
@@ -85,6 +99,7 @@ checkTask = async(req, res) => {
 module.exports = {
   newTask,
   fetchTasks,
+  fetchChecked,
   fetchTask,
   deleteTask,
   checkTask

@@ -13,6 +13,7 @@ class Header extends React.Component{
       return(
         <>
           <button className='header__button' onClick={() => this.onSignOutClick()}>Sign out</button>
+          <Link to='/checkedTasks' className='header__button'>Done tasks</Link>
         </>
       )
     }
