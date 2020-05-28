@@ -5,7 +5,13 @@
 
   &__auth{
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 
+    &--box{
+      display: flex;
+      align-content: center;
+    }
   }
 
   &__button{

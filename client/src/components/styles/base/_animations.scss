@@ -72,9 +72,16 @@
   transition: all 500ms;
 }
 
-//--TASKS--
+//--TASKS--//
 .task-animation--enter{ opacity: 0; transform: translateX(-4rem); }
 .task-animation--enter-active{ opacity: 1; transform: translateX(0); transition: all .5s; }
 
 .task-animation--exit{ opacity: 1; transform: translateX(0); }
 .task-animation--exit-active{ opacity: 0; transform: translateX(-4rem); transition: all .5s cubic-bezier(0.64, 0, 0.78, 0); }
+
+//--CHECK--//
+.check--enter{ opacity: 0; color: $tertiary; transform: scale(0.9) translateY(-.5rem); }
+.check--enter-active{ opacity: 1; color: $primary; transform: scale(0.9) translateY(-.5rem); transition: all .3s;}
+
+.check--exit{ opacity: 1; color: $primary; transform: scale(0.9) translateY(-.5rem); }
+.check--exit-active{ opacity: 0; color: $tertiary; transform: scale(0.9) translateY(-.5rem); transition: all .3s;}

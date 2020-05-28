@@ -12,17 +12,22 @@ class Header extends React.Component{
     if(this.props.isSignedIn){
       return(
         <>
-          <button className='header__button' onClick={() => this.onSignOutClick()}>Sign out</button>
-          <Link to='/checkedTasks' className='header__button'>Done tasks</Link>
+          <div className='header__auth--box'>
+            <Link to='/tasks' className='header__button'>Tasks</Link>
+            <Link to='/tasks/checked' className='header__button'>Done tasks</Link>
+          </div>
+          <div className='header__auth--box'>
+            <button className='header__button' onClick={() => this.onSignOutClick()}>Sign out</button>
+          </div>
         </>
       )
     }
     else{
       return(
-        <>
+        <div className='header__auth--box'>
           <Link to='/signup' className='header__button'>Sign up</Link>
           <Link to='/signin' className='header__button'>Sign in</Link>
-        </>
+        </div>
       )
     }
   }

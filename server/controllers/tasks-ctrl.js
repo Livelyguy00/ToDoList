@@ -52,7 +52,10 @@ fetchChecked = async(req, res) => {
       console.log(err)
     }
     if(done_tasks){
-      console.log(done_tasks)
+      res.status(200).json({
+        success: true,
+        data: done_tasks
+      })
     }
   })
 }
@@ -89,9 +92,28 @@ deleteTask = async(req, res) => {
 
 checkTask = async(req, res) => {
   const id = req.query.task
-  Task.updateOne({_id: id}, { succeed: true }, (err, res) => {
+  Task.updateOne({_id: id}, { succeed: true }, (err, success) => {
     if(err){
       console.log(err)
+    }
+    if(success){
+      res.status(200).json({
+        success: true
+      })
+    }
+  })
+}
+
+uncheckTask = async(req, res) => {
+  const id = req.query.task
+  Task.updateOne({_id: id}, {succeed: false}, (err, success) => {
+    if(err){
+      console.log(err)
+    }
+    if(success){
+      res.status(200).json({
+        success: true
+      })
     }
   })
 }
@@ -102,5 +124,6 @@ module.exports = {
   fetchChecked,
   fetchTask,
   deleteTask,
-  checkTask
+  checkTask,
+  uncheckTask
 }

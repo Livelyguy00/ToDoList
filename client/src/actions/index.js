@@ -1,5 +1,5 @@
 import api from '../apis/index';
-import { SIGN_IN, SIGN_UP, SIGN_OUT, FETCH_TASKS, FETCH_TASK, DELETE_TASK, NEW_TASK } from './types';
+import { SIGN_IN, SIGN_UP, SIGN_OUT, FETCH_TASKS, FETCH_TASK, DELETE_TASK, NEW_TASK, FETCH_CHECKED } from './types';
 import history from '../history';
 
 export const signUp = ({email, password, password_2}) => async dispatch => {
@@ -70,7 +70,10 @@ export const fetchTasks = (userId) => async dispatch => {
 
 export const fetchCheckedTasks = (userId) => async dispatch => {
   const response = await api.get(`/fetchchecked?user=${userId}`)
-  console.log(response.data)
+  dispatch({
+    type: FETCH_CHECKED,
+    payload: response.data.data
+  })
 }
 
 export const fetchTask = (taskId) => async dispatch => {
@@ -92,5 +95,9 @@ export const deleteTask = (taskId) => async dispatch => {
 }
 
 export const checkTask = (taskId) => async dispatch => {
-  await api.get(`/edit?task=${taskId}`)
+  await api.get(`/check?task=${taskId}`)
+}
+
+export const uncheckTask = (taskId) => async dispatch => {
+  await api.get(`/uncheck?task=${taskId}`)
 }

@@ -63,7 +63,7 @@ class Tasks extends React.Component {
               timeout={500}
               classNames='task-animation-'
             >
-              <Task task={task} key={task._id} onCheck={this.checkedTask} />
+              <Task task={task} key={task._id} checked={false} onCheck={this.checkedTask} class='task'/>
             </CSSTransition>
           ))}
         </TransitionGroup>

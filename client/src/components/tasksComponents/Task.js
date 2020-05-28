@@ -2,14 +2,15 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faPencilAlt, faShareAlt, faCheck, faExclamation } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 class Task extends React.Component {
-  // constructor(props){
-  //   super(props)
-  //   this.state = {
-  //     taskChecked: false
-  //   }
-  // }
+  constructor(props){
+    super(props)
+    this.state = {
+      taskChecked: this.props.checked
+    }
+  }
 
   ifImportant(){
     if(this.props.task.important){
@@ -26,19 +27,29 @@ class Task extends React.Component {
     )
   }
 
+  toggleCheck(id){
+    this.props.onCheck(id)
+    this.setState({
+      taskChecked: !this.state.taskChecked
+    })
+  }
+
   render(){
     if(this.props.task !== undefined){
       return(
-        <div className='task'>
-          <input className='task__check' 
-            onChange={e => this.props.onCheck(this.props.task._id)}
+        <div className={this.props.class}>
+          <input className='task__check'
+            checked={this.props.checked} 
+            onChange={e => this.toggleCheck(this.props.task._id)}
             type='checkbox' 
             id={this.props.task._id} 
             name='succeed' 
           />
           <label htmlFor={this.props.task._id} className='task__check--label'>
             <span className='task__check--custom'>
-              <FontAwesomeIcon icon={ faCheck } className='task__check--icon'/>
+              <CSSTransition key={this.props.task._id} timeout={300} classNames='check-'>
+                <FontAwesomeIcon icon={ faCheck } className='task__check--icon'/>
+              </CSSTransition>
             </span>
           </label>
           { this.ifImportant() }
